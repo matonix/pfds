@@ -1,4 +1,4 @@
-module Sec3.Ex9 where
+module PFDS.Sec3.Ex9 where
 
 data Color = R | B deriving (Show)
 data Tree e = E | T Color (Tree e) e (Tree e) deriving (Show)

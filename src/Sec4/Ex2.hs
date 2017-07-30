@@ -1,4 +1,4 @@
-module Sec4.Ex2 where
+module PFDS.Sec4.Ex2 where
 
 import Prelude hiding ((++), take, drop, reverse)
 

@@ -1,4 +1,4 @@
-module Sec5.Queue where
+module PFDS.Sec5.Queue where
 
 import Prelude hiding (head, tail)
 

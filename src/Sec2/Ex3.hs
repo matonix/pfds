@@ -1,6 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-name-shadowing #-}
 
-module Sec2.Ex3 where
+module PFDS.Sec2.Ex3 where
 
 import Data.Maybe (fromMaybe)
 import Control.Monad ((<$!>))

@@ -1,4 +1,4 @@
-module Sec5.Ex1 where
+module PFDS.Sec5.Ex1 where
 
 import Prelude hiding (head, last, tail, init)
 

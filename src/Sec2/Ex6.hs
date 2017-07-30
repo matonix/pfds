@@ -1,6 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-name-shadowing #-}
 
-module Sec2.Ex6 where
+module PFDS.Sec2.Ex6 where
 
 import Prelude hiding (lookup)
 import Data.Maybe (fromMaybe)

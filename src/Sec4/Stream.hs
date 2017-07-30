@@ -1,4 +1,4 @@
-module Sec4.Stream where
+module PFDS.Sec4.Stream where
 
 import Prelude hiding ((++), take, drop, reverse)
 

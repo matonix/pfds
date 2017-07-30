@@ -1,6 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-name-shadowing #-}
 
-module Sec2.Ex5 where
+module PFDS.Sec2.Ex5 where
 
 data Tree a = E | T (Tree a) a (Tree a) deriving (Show)
 
