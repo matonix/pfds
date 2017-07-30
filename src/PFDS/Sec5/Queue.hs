@@ -2,6 +2,11 @@ module PFDS.Sec5.Queue where
 
 import Prelude hiding (head, tail)
 
+-- | Doctests for Queue
+--
+-- >>> foldl snoc (empty :: BatchedQueue Int) [1..10]
+-- Q [1] [10,9,8,7,6,5,4,3,2]
+
 class Queue q where
   empty :: q a
   isEmpty :: q a -> Bool
@@ -23,6 +28,3 @@ instance Queue BatchedQueue where
 checkf :: [a] -> [a] -> BatchedQueue a
 checkf [] r = Q (reverse r) []
 checkf f r = Q f r
-
--- foldl snoc (empty :: BatchedQueue Int) [1..10]
--- Q [1] [10,9,8,7,6,5,4,3,2]
