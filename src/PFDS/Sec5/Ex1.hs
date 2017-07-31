@@ -74,10 +74,12 @@ instance Deque BatchedDeque where
   last (Q [x] []) = x
   last (Q _ (x:_)) = x
 
-  tail (Q [] _) = error "empty"
+  tail (Q [] []) = error "empty"
+  tail (Q [] _) = empty
   tail (Q (_:f) r) = check f r
 
-  init (Q _ []) = error "empty"
+  init (Q [] []) = error "empty"
+  init (Q _ []) = empty
   init (Q f (_:r)) = check f r
 
 check :: [a] -> [a] -> BatchedDeque a
