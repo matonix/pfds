@@ -3,18 +3,18 @@
 
 module PFDS.Sec3.Heap where
 
-class Ord e => Heap h e where
-  empty :: h e
-  isEmpty :: h e -> Bool
-  insert :: e -> h e -> h e
-  merge :: h e -> h e -> h e
-  findMin :: h e -> e
-  deleteMin :: h e -> h e
+class Heap h where
+  empty :: Ord e => h e
+  isEmpty :: Ord e => h e -> Bool
+  insert :: Ord e => e -> h e -> h e
+  merge :: Ord e => h e -> h e -> h e
+  findMin :: Ord e => h e -> e
+  deleteMin :: Ord e => h e -> h e
 
 -- impl leftist heap
 data LHeap e = E | T Int e (LHeap e) (LHeap e) deriving (Show)
 
-instance Ord e => Heap LHeap e where
+instance Heap LHeap where
   empty = E
 
   isEmpty E = True
@@ -26,7 +26,7 @@ instance Ord e => Heap LHeap e where
     then makeT x a1 $ merge b1 h2
     else makeT y a2 $ merge h1 b2
 
-  insert x h = merge (T 1 x E E) h
+  insert x = merge (T 1 x E E)
 
   findMin E = error "Empty"
   findMin (T _ x _ _) = x
