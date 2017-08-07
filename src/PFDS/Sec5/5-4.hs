@@ -1,6 +1,6 @@
 module PFDS.Sec5.Ex4 where
 
-import PFDS.Sec3.Heap (Heap(..))
+import PFDS.Sec3.Heap (Heap (..))
 
 data SplayHeap e = E | T (SplayHeap e) e (SplayHeap e)
 
@@ -15,7 +15,7 @@ instance Heap SplayHeap where
   findMin (T E x _) = x
   findMin (T a _ _) = findMin a
 
-  deleteMin (T E _ b) = b
+  deleteMin (T E _ b)         = b
   deleteMin (T (T E x b) y c) = T b y c
   deleteMin (T (T a x b) y c) = T (deleteMin a) x (T b y c)
 
