@@ -57,35 +57,35 @@ t = y   d   =>      / \   ||   / \
 
 ただし、$a$ と $b$  は `partition (pivot, u)` の返り値とする。すると、
 
-​	$\cal A(s)$
+$\qquad \cal A(s)$
 
-$=$ 		$\{\cal A$ の定義 $\}$
+$=\qquad \{\cal A$ の定義 $\}$
 
-​	${\cal T}(s)+\Phi(s')+\Phi(t')-\Phi(s)$
+$\qquad {\cal T}(s)+\Phi(s')+\Phi(t')-\Phi(s)$
 
-$=$ 		$\{{\cal T}(s)=1+{\cal T}(u)\}$
+$=\qquad \{{\cal T}(s)=1+{\cal T}(u)\}$
 
-​	$1+{\cal T}(u)+\Phi(s')+\Phi(t')-\Phi(s)$
+$\qquad 1+{\cal T}(u)+\Phi(s')+\Phi(t')-\Phi(s)$
 
-$=$		$\{{\cal T}(u)={\cal A}(u)-\Phi(a)-\Phi(b)+\Phi(u)\}$
+$=\qquad \{{\cal T}(u)={\cal A}(u)-\Phi(a)-\Phi(b)+\Phi(u)\}$
 
-​	$1+{\cal A}(u)-\Phi(a)-\Phi(b)+\Phi(u)+\Phi(s')+\Phi(t')-\Phi(s)$
+$\qquad 1+{\cal A}(u)-\Phi(a)-\Phi(b)+\Phi(u)+\Phi(s')+\Phi(t')-\Phi(s)$
 
-$=$		$\{\Phi(s'), \Phi(t'), \Phi(s)$ を展開して単純化 $\}$
+$=\qquad \{\Phi(s'), \Phi(t'), \Phi(s)$ を展開して単純化 $\}$
 
-​	$1+{\cal A}(u)-\phi(s')+\phi(t')-\phi(s)-\phi(t)$
+$\qquad 1+{\cal A}(u)-\phi(s')+\phi(t')-\phi(s)-\phi(t)$
 
-$\le$ 		$\{$ 帰納法の仮定: ${\cal A}(c)\le 1+2\phi(c) \}$
+$\le\qquad \{$ 帰納法の仮定: ${\cal A}(c)\le 1+2\phi(c) \}$
 
-​	$2+2\phi(c)-\phi(s')+\phi(t')-\phi(s)-\phi(t)$
+$\qquad 2+2\phi(c)-\phi(s')+\phi(t')-\phi(s)-\phi(t)$
 
-$<$		$\{\phi(c)<\phi(s)$ と $\phi(s')\le\phi(t)\}$
+$<\qquad \{\phi(c)<\phi(s)$ と $\phi(s')\le\phi(t)\}$
 
-​	$2+\phi(c)+\phi(t')$
+$\qquad 2+\phi(c)+\phi(t')$
 
-$<$		$\{\#c+\#t'<\#s$ と補題5.1 $\}$
+$<\qquad \{\#c+\#t'<\#s$ と補題5.1 $\}$
 
-​	$1+2\phi(s)$
+$\qquad 1+2\phi(s)$
 
 となる。
 
@@ -94,4 +94,3 @@ $<$		$\{\#c+\#t'<\#s$ と補題5.1 $\}$
 - $\Phi(s')=\phi(s')+\Phi(c)+\Phi(a)$
 - $\Phi(t')=\phi(t')+\Phi(b)+\Phi(d)$
 - $\Phi(s)=\phi(s)+\phi(t)+\Phi(c)+\Phi(d)+\Phi(u)$
-
