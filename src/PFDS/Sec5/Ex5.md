@@ -73,11 +73,11 @@ $\qquad 1+{\cal A}(u)-\Phi(a)-\Phi(b)+\Phi(u)+\Phi(s')+\Phi(t')-\Phi(s)$
 
 $=\qquad \{\Phi(s'), \Phi(t'), \Phi(s)$ を展開して単純化 $\}$
 
-$\qquad 1+{\cal A}(u)-\phi(s')+\phi(t')-\phi(s)-\phi(t)$
+$\qquad 1+{\cal A}(u)+\phi(s')+\phi(t')-\phi(s)-\phi(t)$
 
 $\le\qquad \{$ 帰納法の仮定: ${\cal A}(c)\le 1+2\phi(c) \}$
 
-$\qquad 2+2\phi(c)-\phi(s')+\phi(t')-\phi(s)-\phi(t)$
+$\qquad 2+2\phi(c)+\phi(s')+\phi(t')-\phi(s)-\phi(t)$
 
 $<\qquad \{\phi(c)<\phi(s)$ と $\phi(s')\le\phi(t)\}$
 
