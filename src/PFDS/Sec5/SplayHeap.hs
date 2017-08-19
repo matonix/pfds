@@ -2,7 +2,7 @@ module PFDS.Sec5.SplayHeap where
 
 import PFDS.Sec3.Heap (Heap (..))
 
-data SplayHeap e = E | T (SplayHeap e) e (SplayHeap e)
+data SplayHeap e = E | T (SplayHeap e) e (SplayHeap e) deriving (Show)
 
 instance Heap SplayHeap where
   empty = E
@@ -19,7 +19,7 @@ instance Heap SplayHeap where
 
   deleteMin E = error "Empty"
   deleteMin (T E _ b)         = b
-  deleteMin (T (T E x b) y c) = T b y c
+  deleteMin (T (T E _ b) y c) = T b y c
   deleteMin (T (T a x b) y c) = T (deleteMin a) x (T b y c)
 
   merge E t = t
@@ -44,7 +44,7 @@ partition pivot t@(T a x b) =
       T a1 y a2 -> if y <= pivot
         then
           let (small, big) = partition pivot a2
-          in (T a1 x small, T big y b)
+          in (T a1 y small, T big x b)
         else
           let (small, big) = partition pivot a1
           in (small, T big y (T a2 x b))
