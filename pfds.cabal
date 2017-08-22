@@ -35,6 +35,8 @@ library
                      , PFDS.Sec3.Heap
                      , PFDS.Sec5.SplayHeap
                      , PFDS.Sec5.Ex7
+                     , PFDS.Sec5.PairingHeap
+                     , PFDS.Sec5.Ex8a
 
 test-suite pfds-test
   type:                exitcode-stdio-1.0

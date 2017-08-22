@@ -1,0 +1,12 @@
+digraph G {
+u1[label="1"];
+u2[label="5"];
+u3[label="4"];
+u4[label="3"];
+u5[label="2"];
+u1 -> u2[label=""];
+u1 -> u3[label=""];
+u1 -> u4[label=""];
+u1 -> u5[label=""];
+
+}
