@@ -18,8 +18,8 @@ main :: IO ()
 main = do
   let dot = showDot . fglToDotString
           . constructGraphs
-          -- $ map (foldl (flip insert) (empty::PairingHeap Int)) [[1..5]]
-          $ map (toBinary . foldl (flip insert) (empty::PairingHeap Int)) [[1..5]]
+          -- $ map (foldl (flip insert) (empty::PairingHeap Int)) [[4,5,6,3,7,8,9,2,10,11,12,1]]
+          $ map (toBinary . foldl (flip insert) (empty::PairingHeap Int)) [[4,5,6,3,7,8,9,2,10,11,12,1]]
           -- $ map construct [[1..x] | x <- [0..5::Int]]
   writeFile (path ++ ".dot") dot
   print =<< system ("dot -Tpng -o" ++ path ++ ".png " ++ path ++ ".dot")

@@ -10,7 +10,8 @@ toBinary (T e []) = T' e E' E'
 toBinary (T e [h]) = T' e (toBinary h) E'
 toBinary (T e (h1:h2:hs)) = T' e (toBinary h1) (unloop (h2:hs)) where
   unloop [] = E'
-  unloop (T e h:hs) = T' e (unloop h) (unloop hs)
+  unloop (E:_) = error "invalid"
+  unloop (T e' h':hs') = T' e' (unloop h') (unloop hs')
 
 {-| Doctests for PairingHeap
 
