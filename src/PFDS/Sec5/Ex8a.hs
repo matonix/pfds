@@ -4,17 +4,13 @@ import PFDS.Sec5.PairingHeap (PairingHeap (..))
 
 data BinTree e = E' | T' e (BinTree e) (BinTree e) deriving (Show)
 
-toBinary :: PairingHeap e -> BinTree (Maybe e)
+toBinary :: PairingHeap e -> BinTree e
 toBinary E = E'
-toBinary (T e []) = T' (Just e) E' E'
-toBinary (T e [h]) = T' (Just e) (toBinary h) E'
-toBinary (T e hs) = loop (Just e) (map toBinary hs) where
-  loop _ [] = E'
-  loop e' [t] = T' e' t E'
-  loop e' ts@(_:_:_) = loop e' $ pairs ts where
-    pairs [] = []
-    pairs [t] = [t]
-    pairs (t1:t2:ts') = T' Nothing t1 t2 : pairs ts'
+toBinary (T e []) = T' e E' E'
+toBinary (T e [h]) = T' e (toBinary h) E'
+toBinary (T e (h1:h2:hs)) = T' e (toBinary h1) (unloop (h2:hs)) where
+  unloop [] = E'
+  unloop (T e h:hs) = T' e (unloop h) (unloop hs)
 
 {-| Doctests for PairingHeap
 

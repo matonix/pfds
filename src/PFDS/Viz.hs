@@ -12,14 +12,14 @@ import Data.Graph.Inductive.Dot (showDot, fglToDotString)
 import System.Process
 
 path :: String
-path = "src/PFDS/Sec5/PairingHeap"
+path = "src/PFDS/Sec5/Ex8a"
 
 main :: IO ()
 main = do
   let dot = showDot . fglToDotString
           . constructGraphs
-          $ map (foldl (flip insert) (empty::PairingHeap Int)) [[1..5]]
-          -- $ map (toBinary . foldl (flip insert) (empty::PairingHeap Int)) [[1..5]]
+          -- $ map (foldl (flip insert) (empty::PairingHeap Int)) [[1..5]]
+          $ map (toBinary . foldl (flip insert) (empty::PairingHeap Int)) [[1..5]]
           -- $ map construct [[1..x] | x <- [0..5::Int]]
   writeFile (path ++ ".dot") dot
   print =<< system ("dot -Tpng -o" ++ path ++ ".png " ++ path ++ ".dot")
