@@ -4,22 +4,26 @@
 import PFDS.Sec3.Heap (Heap (..))
 -- import PFDS.Sec5.Ex7
 -- import PFDS.Sec5.SplayHeap (SplayHeap (..))
-import PFDS.Sec5.Ex8a
-import PFDS.Sec5.PairingHeap (PairingHeap (..))
+-- import PFDS.Sec5.Ex8a
+-- import PFDS.Sec5.PairingHeap (PairingHeap (..))
+import PFDS.Sec5.Ex8b
 
 import Data.Graph.Inductive (mkGraph, LNode, LEdge, Node, Gr)
 import Data.Graph.Inductive.Dot (showDot, fglToDotString)
 import System.Process
 
 path :: String
-path = "src/PFDS/Sec5/Ex8a"
+path = "src/PFDS/Sec5/Ex8b"
 
 main :: IO ()
 main = do
+  let a = foldl (flip insert) (empty::BinTree Int) [3,4,5,2]
+  let b = foldl (flip insert) (empty::BinTree Int) [6,7,8,1]
   let dot = showDot . fglToDotString
           . constructGraphs
           -- $ map (foldl (flip insert) (empty::PairingHeap Int)) [[4,5,6,3,7,8,9,2,10,11,12,1]]
-          $ map (toBinary . foldl (flip insert) (empty::PairingHeap Int)) [[4,5,6,3,7,8,9,2,10,11,12,1]]
+          -- $ map (toBinary . foldl (flip insert) (empty::PairingHeap Int)) [[4,5,6,3,7,8,9,2,10,11,12,1]]
+          $ [a, b, merge a b] ++ takeWhile (not . isEmpty) (iterate deleteMin (merge a b))
           -- $ map construct [[1..x] | x <- [0..5::Int]]
   writeFile (path ++ ".dot") dot
   print =<< system ("dot -Tpng -o" ++ path ++ ".png " ++ path ++ ".dot")
@@ -44,9 +48,10 @@ instance Show a => DotView (BinTree a) where
     cons' ((ls, es), n:ns) p (T' x a b) = cons' ((ls', es'), ns') n b where
       ((ls', es'), ns') = cons' (((n, show x):ls, (p, n, ""):es), ns) n a
 
-instance Show a => DotView (PairingHeap a) where
-  cons ((ls, es), p:c:ns) E = (((c, "E"):ls, (p, c, ""):es), ns)
-  cons ((ls, es), p:c:ns) (T x hs) = cons' (((c, show x):ls, (p, c, ""):es), c:ns) hs where
-    cons' ((ls, es), _:ns) [] = ((ls, es), ns)
-    cons' ((ls, es), p:c:ns) (h:hs) = cons' ((ls', es'), p:ns') hs where
-      ((ls', es'), ns') = cons ((ls, es), p:c:ns) h
+-- instance Show a => DotView (PairingHeap a) where
+--   cons ((ls, es), p:c:ns) E = (((c, "E"):ls, (p, c, ""):es), ns)
+--   cons ((ls, es), p:c:ns) (T x hs) = cons' (((c, show x):ls, (p, c, ""):es), c:ns) hs where
+--     cons' ((ls, es), _:ns) [] = ((ls, es), ns)
+--     cons' ((ls, es), p:c:ns) (h:hs) = cons' ((ls', es'), p:ns') hs where
+--       ((ls', es'), ns') = cons ((ls, es), p:c:ns) h
+--
