@@ -1,0 +1,22 @@
+digraph G {
+u1[label="1"];
+u2[label="10"];
+u3[label="9"];
+u4[label="8"];
+u5[label="7"];
+u6[label="6"];
+u7[label="5"];
+u8[label="4"];
+u9[label="3"];
+u10[label="2"];
+u1 -> u2[label=""];
+u1 -> u3[label=""];
+u1 -> u4[label=""];
+u1 -> u5[label=""];
+u1 -> u6[label=""];
+u1 -> u7[label=""];
+u1 -> u8[label=""];
+u1 -> u9[label=""];
+u1 -> u10[label=""];
+
+}

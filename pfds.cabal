@@ -30,9 +30,10 @@ library
                      , hspec
                      , QuickCheck
   default-language:    Haskell2010
-  exposed-modules:     PFDS.Sec5.Queue
+  exposed-modules:     PFDS.Sec3.Heap
+                     , PFDS.Sec3.BinomialHeap
+                     , PFDS.Sec5.Queue
                      , PFDS.Sec5.Ex1
-                     , PFDS.Sec3.Heap
                      , PFDS.Sec5.SplayHeap
                      , PFDS.Sec5.Ex7
                      , PFDS.Sec5.PairingHeap

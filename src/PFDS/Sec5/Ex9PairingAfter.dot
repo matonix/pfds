@@ -1,0 +1,20 @@
+digraph G {
+u1[label="2"];
+u2[label="9"];
+u3[label="10"];
+u4[label="7"];
+u5[label="8"];
+u6[label="5"];
+u7[label="6"];
+u8[label="3"];
+u9[label="4"];
+u1 -> u2[label=""];
+u1 -> u4[label=""];
+u1 -> u6[label=""];
+u1 -> u8[label=""];
+u2 -> u3[label=""];
+u4 -> u5[label=""];
+u6 -> u7[label=""];
+u8 -> u9[label=""];
+
+}
