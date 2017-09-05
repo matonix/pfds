@@ -75,15 +75,15 @@ $=\qquad \{\Phi(s'), \Phi(t'), \Phi(s)$ を展開して単純化 $\}$
 
 $\qquad 1+{\cal A}(u)+\phi(s')+\phi(t')-\phi(s)-\phi(t)$
 
-$\le\qquad \{$ 帰納法の仮定: ${\cal A}(c)\le 1+2\phi(c) \}$
+$\le\qquad \{$ 帰納法の仮定: ${\cal A}(u)\le 1+2\phi(u) \}$
 
-$\qquad 2+2\phi(c)+\phi(s')+\phi(t')-\phi(s)-\phi(t)$
+$\qquad 2+2\phi(u)+\phi(s')+\phi(t')-\phi(s)-\phi(t)$
 
-$<\qquad \{\phi(c)<\phi(s)$ と $\phi(s')\le\phi(t)\}$
+$<\qquad \{\phi(u)<\phi(s)$ と $\phi(u)\le\phi(t)\}$
 
-$\qquad 2+\phi(c)+\phi(t')$
+$\qquad 2+\phi(s')+\phi(t')$
 
-$<\qquad \{\#c+\#t'<\#s$ と補題5.1 $\}$
+$<\qquad \{\#s'+\#t'=\#s$ と補題5.1 $\}$
 
 $\qquad 1+2\phi(s)$
 
