@@ -7,11 +7,10 @@ data BinTree e = E' | T' e (BinTree e) (BinTree e) deriving (Show)
 toBinary :: PairingHeap e -> BinTree e
 toBinary E = E'
 toBinary (T e []) = T' e E' E'
-toBinary (T e [h]) = T' e (toBinary h) E'
-toBinary (T e (h1:h2:hs)) = T' e (toBinary h1) (unloop (h2:hs)) where
+toBinary (T e (h1:hs)) = T' e (toBinary h1) (unloop hs) where
   unloop [] = E'
   unloop (E:_) = error "invalid"
-  unloop (T e' h':hs') = T' e' (unloop h') (unloop hs')
+  unloop (T e' hs':hs'') = T' e' (unloop hs') (unloop hs'')
 
 {-| Doctests for PairingHeap
 
