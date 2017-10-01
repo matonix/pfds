@@ -2,7 +2,6 @@
 {-# LANGUAGE FlexibleInstances #-}
 
 module PFDS.Sec3.Ex6 where
-{-# ANN module "HLint: ignore Eta reduce" #-}
 
 class Ord e => BinomialHeap h e where
   empty :: [(Int, h e)]

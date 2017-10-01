@@ -4,7 +4,6 @@
 -- p.191見ながら…
 
 module PFDS.Sec3.Ex7 where
-{-# ANN module "HLint: ignore Eta reduce" #-}
 
 class Ord e => Heap h e where
   empty :: Ord e => h e
