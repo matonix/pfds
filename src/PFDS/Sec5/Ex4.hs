@@ -1,6 +1,6 @@
 module PFDS.Sec5.Ex4 where
 
-import PFDS.Sec3.Heap (Heap (..))
+import PFDS.Commons.Heap (Heap (..))
 
 data SplayHeap e = E | T (SplayHeap e) e (SplayHeap e)
 

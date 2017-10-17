@@ -1,6 +1,6 @@
 module PFDS.Sec5.Ex8a where
 
-import PFDS.Sec5.PairingHeap (PairingHeap (..))
+import PFDS.Commons.PairingHeap (PairingHeap (..))
 
 data BinTree e = E' | T' e (BinTree e) (BinTree e) deriving (Show)
 

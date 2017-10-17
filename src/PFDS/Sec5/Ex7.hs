@@ -1,7 +1,7 @@
 module PFDS.Sec5.Ex7 where
 
-import PFDS.Sec3.Heap (Heap (..))
-import PFDS.Sec5.SplayHeap (SplayHeap (..))
+import PFDS.Commons.Heap (Heap (..))
+import PFDS.Commons.SplayHeap (SplayHeap (..))
 
 sort :: Ord a => [a] -> [a]
 sort = inOrder [] . construct

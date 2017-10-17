@@ -1,0 +1,33 @@
+name: pfds
+version: '0.1.0.0'
+category: Learning
+author: maton
+maintainer: automatonix@gmail.com
+copyright: 2017 maton
+license: BSD3
+github: matonix/pfds
+
+source-dirs: src
+dependencies:
+- base >=4.7 && <5
+ghc-options:
+- -Wall
+- -threaded
+- -rtsopts
+- -with-rtsopts=-N
+
+executables:
+  graphviz:
+    main: Viz.hs
+    source-dirs: src/PFDS/Commons
+    dependencies:
+    - fgl
+    - fgl-visualize
+    - process
+tests:
+  pfds-test:
+    main: Spec.hs
+    source-dirs: test
+    dependencies:
+    - hspec
+    - QuickCheck

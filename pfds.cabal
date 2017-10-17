@@ -1,56 +1,128 @@
-name:                pfds
-version:             0.1.0.0
--- synopsis:
--- description:
-homepage:            https://github.com/matonix/pfds#readme
-license:             BSD3
-license-file:        LICENSE
-author:              maton
-maintainer:          automatonix@gmail.com
-copyright:           2017 maton
-category:            Learning
-build-type:          Simple
-extra-source-files:  README.md
-cabal-version:       >=1.10
+-- This file has been generated from package.yaml by hpack version 0.17.0.
+--
+-- see: https://github.com/sol/hpack
 
-executable graphviz
-  hs-source-dirs:      src/PFDS
-  main-is:             Viz.hs
-  ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
-  build-depends:       base
-                     , pfds
-                     , fgl
-                     , fgl-visualize
-                     , process
-  default-language:    Haskell2010
-
-library
-  hs-source-dirs:      src
-  build-depends:       base >= 4.7 && < 5
-                     , hspec
-                     , QuickCheck
-  default-language:    Haskell2010
-  exposed-modules:     PFDS.Sec3.Heap
-                     , PFDS.Sec3.BinomialHeap
-                     , PFDS.Sec5.Queue
-                     , PFDS.Sec5.Ex1
-                     , PFDS.Sec5.SplayHeap
-                     , PFDS.Sec5.Ex7
-                     , PFDS.Sec5.PairingHeap
-                     , PFDS.Sec5.Ex8a
-                     , PFDS.Sec5.Ex8b
-
-test-suite pfds-test
-  type:                exitcode-stdio-1.0
-  hs-source-dirs:      test
-  main-is:             Spec.hs
-  build-depends:       base
-                     , pfds
-                     , hspec
-                     , QuickCheck
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
-  default-language:    Haskell2010
+name:           pfds
+version:        0.1.0.0
+category:       Learning
+homepage:       https://github.com/matonix/pfds#readme
+bug-reports:    https://github.com/matonix/pfds/issues
+author:         maton
+maintainer:     automatonix@gmail.com
+copyright:      2017 maton
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
 
 source-repository head
-  type:     git
+  type: git
   location: https://github.com/matonix/pfds
+
+executable graphviz
+  main-is: Viz.hs
+  hs-source-dirs:
+      src
+      src/PFDS/Commons
+  ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , fgl
+    , fgl-visualize
+    , process
+  other-modules:
+      PFDS.Commons.BankersQueue
+      PFDS.Commons.BatchedQueue
+      PFDS.Commons.BinomialHeap
+      PFDS.Commons.BottomUpMergeSort
+      PFDS.Commons.Heap
+      PFDS.Commons.PairingHeap
+      PFDS.Commons.PhysicistsQueue
+      PFDS.Commons.Queue
+      PFDS.Commons.RedBlackSet
+      PFDS.Commons.SplayHeap
+      PFDS.Commons.Stream
+      PFDS.Commons.Viz
+      PFDS.Sec2.Ex1
+      PFDS.Sec2.Ex2
+      PFDS.Sec2.Ex3
+      PFDS.Sec2.Ex4
+      PFDS.Sec2.Ex5
+      PFDS.Sec2.Ex6
+      PFDS.Sec3.Ex10
+      PFDS.Sec3.Ex2
+      PFDS.Sec3.Ex3
+      PFDS.Sec3.Ex4b
+      PFDS.Sec3.Ex4c
+      PFDS.Sec3.Ex5
+      PFDS.Sec3.Ex6
+      PFDS.Sec3.Ex7
+      PFDS.Sec3.Ex9
+      PFDS.Sec4.Ex2
+      PFDS.Sec5.Ex1
+      PFDS.Sec5.Ex4
+      PFDS.Sec5.Ex7
+      PFDS.Sec5.Ex8a
+      PFDS.Sec5.Ex8b
+      BankersQueue
+      BatchedQueue
+      BinomialHeap
+      BottomUpMergeSort
+      Heap
+      PairingHeap
+      PhysicistsQueue
+      Queue
+      RedBlackSet
+      SplayHeap
+      Stream
+  default-language: Haskell2010
+
+test-suite pfds-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      src
+      test
+  ghc-options: -Wall -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , hspec
+    , QuickCheck
+  other-modules:
+      PFDS.Commons.BankersQueue
+      PFDS.Commons.BatchedQueue
+      PFDS.Commons.BinomialHeap
+      PFDS.Commons.BottomUpMergeSort
+      PFDS.Commons.Heap
+      PFDS.Commons.PairingHeap
+      PFDS.Commons.PhysicistsQueue
+      PFDS.Commons.Queue
+      PFDS.Commons.RedBlackSet
+      PFDS.Commons.SplayHeap
+      PFDS.Commons.Stream
+      PFDS.Commons.Viz
+      PFDS.Sec2.Ex1
+      PFDS.Sec2.Ex2
+      PFDS.Sec2.Ex3
+      PFDS.Sec2.Ex4
+      PFDS.Sec2.Ex5
+      PFDS.Sec2.Ex6
+      PFDS.Sec3.Ex10
+      PFDS.Sec3.Ex2
+      PFDS.Sec3.Ex3
+      PFDS.Sec3.Ex4b
+      PFDS.Sec3.Ex4c
+      PFDS.Sec3.Ex5
+      PFDS.Sec3.Ex6
+      PFDS.Sec3.Ex7
+      PFDS.Sec3.Ex9
+      PFDS.Sec4.Ex2
+      PFDS.Sec5.Ex1
+      PFDS.Sec5.Ex4
+      PFDS.Sec5.Ex7
+      PFDS.Sec5.Ex8a
+      PFDS.Sec5.Ex8b
+      PFDS.Sec5.Ex1Spec
+      PFDS.Sec5.Ex7Spec
+      PFDS.Sec5.QueueSpec
+  default-language: Haskell2010

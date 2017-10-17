@@ -2,7 +2,7 @@
 
 module PFDS.Sec5.Ex8b where
 
-import PFDS.Sec3.Heap (Heap (..))
+import PFDS.Commons.Heap (Heap (..))
 
 data BinTree e = E' | T' e (BinTree e) (BinTree e) deriving (Show)
 
