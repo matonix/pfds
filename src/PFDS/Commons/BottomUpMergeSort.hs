@@ -21,4 +21,4 @@ add x (Sortable size segs) =
       else addSeg (mrg seg seg') segs (size `div` 2)
 
 sort :: Sortable a -> [[a]]
-sort size segs = foldl mrg xs segs
+sort (Sortable _ segs) = foldl mrg [] segs
