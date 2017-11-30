@@ -12,7 +12,7 @@ mrg xs@(x:xs') ys@(y:ys') = if x <= y
 empty :: Sortable a
 empty = Sortable 0 []
 
-add :: a -> Sortable a -> Sortable a
+add :: Ord a => a -> Sortable a -> Sortable a
 add x (Sortable size segs) =
   Sortable (size+1) (addSeg [x] segs size)
   where
@@ -20,5 +20,5 @@ add x (Sortable size segs) =
       then seg:seg':segs
       else addSeg (mrg seg seg') segs (size `div` 2)
 
-sort :: Sortable a -> [[a]]
+sort :: Ord a => Sortable a -> [a]
 sort (Sortable _ segs) = foldl mrg [] segs
