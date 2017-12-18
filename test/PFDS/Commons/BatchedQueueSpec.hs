@@ -1,10 +1,11 @@
-module PFDS.Sec5.QueueSpec
+module PFDS.Commons.BatchedQueueSpec
     (
     spec
     ) where
 
 import Test.Hspec
-import PFDS.Sec5.Queue
+import PFDS.Commons.Queue
+import PFDS.Commons.BatchedQueue
 
 spec :: Spec
 spec =

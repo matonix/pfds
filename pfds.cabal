@@ -33,6 +33,7 @@ library
       PFDS.Commons.BinomialHeap
       PFDS.Commons.BottomUpMergeSort
       PFDS.Commons.Heap
+      PFDS.Commons.HoodMelvilleQueue
       PFDS.Commons.PairingHeap
       PFDS.Commons.PhysicistsQueue
       PFDS.Commons.Queue
@@ -63,6 +64,8 @@ library
       PFDS.Sec5.Ex8b
       PFDS.Sec6.Ex6
       PFDS.Sec8.Ex1
+      PFDS.Sec8.Ex2
+      PFDS.Sec8.Ex3
   default-language: Haskell2010
 
 executable graphviz
@@ -103,7 +106,8 @@ test-suite pfds-test
     , hspec
     , QuickCheck
   other-modules:
+      PFDS.Commons.BatchedQueueSpec
       PFDS.Sec5.Ex1Spec
       PFDS.Sec5.Ex7Spec
-      PFDS.Sec5.QueueSpec
+      PFDS.Sec8.Ex1Spec
   default-language: Haskell2010
