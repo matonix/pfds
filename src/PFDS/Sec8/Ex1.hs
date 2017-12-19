@@ -50,7 +50,9 @@ delete x (RBTree s l d) = if l < (d + 1) * 2 then rebuild t else t
       | otherwise = T color (del a) x (del b) D
 
 rebuild :: Ord e => RBTree e -> RBTree e
-rebuild (RBTree s l d) = RBTree (fromOrdList (toOrdList s)) (l-d) 0
+rebuild (RBTree s l d) = RBTree (fromOrdList s') (length s') 0
+  where
+    s' = toOrdList s
 
 toOrdList :: Ord e => Tree e -> [e]
 toOrdList t' = go t' []
