@@ -29,7 +29,8 @@
 特に意味は無いです
 
 ```haskell
-mapM_ (print . foldl snoc empty) [[1..x] | x <- [1..13]]
+-- mapM_ (print . foldl snoc empty) [[1..x] | x <- [1..13]]
+mapM_ print $ scanl snoc empty [1..13] -- こっちのほうが簡単
 
 Q 1 [1] Idle 0 []
 Q 1 [1] Idle 1 [2]
