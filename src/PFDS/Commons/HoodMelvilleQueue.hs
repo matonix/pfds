@@ -1,4 +1,8 @@
+{-# LANGUAGE InstanceSigs #-}
+
 module PFDS.Commons.HoodMelvilleQueue where
+
+import qualified PFDS.Commons.Queue as Q
 
 data RotationState a =
     Idle
@@ -32,19 +36,20 @@ check q@(Q lenf f state lenr r) = if lenr <= lenf
   else exec2 (Q (lenf+lenr) f newstate 0 [])
   where newstate = Reversing 0 f [] r []
 
-empty :: Queue a
-empty = Q 0 [] Idle 0 []
+instance Q.Queue Queue where
+  empty :: Queue a
+  empty = Q 0 [] Idle 0 []
 
-isEmpty :: Queue a -> Bool
-isEmpty (Q lenf _ _ _ _) = lenf == 0
+  isEmpty :: Queue a -> Bool
+  isEmpty (Q lenf _ _ _ _) = lenf == 0
 
-snoc :: Queue a -> a -> Queue a
-snoc (Q lenf f state lenr r) x = check (Q lenf f state (lenr+1) (x:r))
+  snoc :: Queue a -> a -> Queue a
+  snoc (Q lenf f state lenr r) x = check (Q lenf f state (lenr+1) (x:r))
 
-head :: Queue a -> a
-head (Q _ [] _ _ _) = error "empty"
-head (Q _ (x:_) _ _ _) = x
+  head :: Queue a -> a
+  head (Q _ [] _ _ _) = error "empty"
+  head (Q _ (x:_) _ _ _) = x
 
-tail :: Queue a -> Queue a
-tail (Q _ [] _ _ _) = error "empty"
-tail (Q lenf (x:f) state lenr r) = check (Q (lenf-1) f (invalidate state) lenr r)
+  tail :: Queue a -> Queue a
+  tail (Q _ [] _ _ _) = error "empty"
+  tail (Q lenf (x:f) state lenr r) = check (Q (lenf-1) f (invalidate state) lenr r)
