@@ -4,7 +4,7 @@ module PFDS.Commons.BankersDeque where
 
 import PFDS.Commons.Deque
 
-data BankersDeque a = Q Int Int [a] Int [a]
+data BankersDeque a = Q Int Int [a] Int [a] deriving (Show)
 
 instance Deque BankersDeque where
   empty :: BankersDeque a

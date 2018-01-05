@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 298e103ebb94dc26ae98241eb9fe24f6009efd0c336df9dcbd20ef2cea3a14c3
+-- hash: cb59238df6a7308ec2cb87bb320177401fc838e24fe48868d4ac4e4ae44fc992
 
 name:           pfds
 version:        0.1.0.0
@@ -72,6 +72,7 @@ library
       PFDS.Sec8.Ex3
       PFDS.Sec8.Ex4
       PFDS.Sec8.Ex4_2
+      PFDS.Sec8.Ex6
   other-modules:
       Paths_pfds
   default-language: Haskell2010
