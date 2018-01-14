@@ -1,7 +1,7 @@
 # 演習問題 8.6
 
 ```haskell
-BankersDeque a = Q (c::Int) (|f|::Int) (f::[a]) (|r|::Int) (r::[a])
+BankersDeque a = Q (c::Int) (|f|::Int) (f::[a]) (|r|::Int) (r::[a]) -- 擬似コード
 ```
 
 ## c = 2 いじめ

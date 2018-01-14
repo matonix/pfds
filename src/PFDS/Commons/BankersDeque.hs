@@ -1,5 +1,7 @@
 {-# LANGUAGE InstanceSigs #-}
 
+-- c の取り扱いが sml と異なっている（データ構造に c を含めている）点に注意
+
 module PFDS.Commons.BankersDeque where
 
 import PFDS.Commons.Deque
