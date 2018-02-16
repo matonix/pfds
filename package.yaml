@@ -48,3 +48,4 @@ tests:
     - pfds
     - hspec
     - QuickCheck
+    - fitspec 

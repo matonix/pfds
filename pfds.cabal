@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9298f475f6e033b6f8fca2aef1a3be469c3dcf238f5e73e4c59f3823a886d389
+-- hash: 6a2aef720b933230d30737bcb1c3ff8b7a7b13633b217f1b0df934b95fbde9fb
 
 name:           pfds
 version:        0.1.0.0
@@ -74,6 +74,9 @@ library
       PFDS.Sec8.Ex4
       PFDS.Sec8.Ex4_2
       PFDS.Sec8.Ex6
+      PFDS.Sec9.Dence
+      PFDS.Sec9.SparseByWeight
+      PFDS.Strict.RealTimeQueueFixed
       PFDS.Strict.RealTimeQueueNaive
       PFDS.Strict.Sandbox
   other-modules:
@@ -117,6 +120,7 @@ test-suite pfds-test
   build-depends:
       QuickCheck
     , base
+    , fitspec
     , hspec
     , pfds
   other-modules:
