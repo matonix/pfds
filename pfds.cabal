@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6a2aef720b933230d30737bcb1c3ff8b7a7b13633b217f1b0df934b95fbde9fb
+-- hash: 21e67914bfc7ea392620f5ca6133e8bb3596c3c5477252c438809d7b62fc6eda
 
 name:           pfds
 version:        0.1.0.0
@@ -33,6 +33,7 @@ library
       PFDS.Commons.BankersDeque
       PFDS.Commons.BankersQueue
       PFDS.Commons.BatchedQueue
+      PFDS.Commons.BinaryRandomAccessList
       PFDS.Commons.BinomialHeap
       PFDS.Commons.BottomUpMergeSort
       PFDS.Commons.Deque
@@ -41,6 +42,7 @@ library
       PFDS.Commons.PairingHeap
       PFDS.Commons.PhysicistsQueue
       PFDS.Commons.Queue
+      PFDS.Commons.RandomAccessList
       PFDS.Commons.RealTimeDeque
       PFDS.Commons.RealTimeQueue
       PFDS.Commons.RedBlackSet
@@ -75,40 +77,12 @@ library
       PFDS.Sec8.Ex4_2
       PFDS.Sec8.Ex6
       PFDS.Sec9.Dence
+      PFDS.Sec9.Ex1
       PFDS.Sec9.SparseByWeight
       PFDS.Strict.RealTimeQueueFixed
       PFDS.Strict.RealTimeQueueNaive
       PFDS.Strict.Sandbox
   other-modules:
-      Paths_pfds
-  default-language: Haskell2010
-
-executable graphviz
-  main-is: Viz.hs
-  hs-source-dirs:
-      app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
-  build-depends:
-      base
-    , fgl
-    , fgl-visualize
-    , pfds
-    , process
-  other-modules:
-      Trace
-      Paths_pfds
-  default-language: Haskell2010
-
-executable trace
-  main-is: Trace.hs
-  hs-source-dirs:
-      app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
-  build-depends:
-      base
-    , pfds
-  other-modules:
-      Viz
       Paths_pfds
   default-language: Haskell2010
 
@@ -120,13 +94,14 @@ test-suite pfds-test
   build-depends:
       QuickCheck
     , base
-    , fitspec
     , hspec
     , pfds
   other-modules:
       PFDS.Commons.BatchedQueueSpec
+      PFDS.Commons.BinaryRandomAccessListSpec
       PFDS.Sec5.Ex1Spec
       PFDS.Sec5.Ex7Spec
       PFDS.Sec8.Ex1Spec
+      PFDS.Sec9.Ex1Spec
       Paths_pfds
   default-language: Haskell2010

@@ -1,7 +1,4 @@
-module PFDS.Commons.BatchedQueueSpec
-    (
-    spec
-    ) where
+module PFDS.Commons.BatchedQueueSpec where
 
 import Test.Hspec
 import PFDS.Commons.Queue
