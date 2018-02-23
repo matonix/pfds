@@ -1,13 +1,18 @@
+{-# LANGUAGE TypeSynonymInstances #-}
+{-# LANGUAGE FlexibleInstances #-}
+
 module PFDS.Sec9.Ex1Spec where
 
 import Test.Hspec
 import Test.QuickCheck
+import Test.QuickCheck.Exception
+import Test.QuickCheck.Property
 import Test.Hspec.QuickCheck (prop)
 import PFDS.Commons.RandomAccessList
 import PFDS.Commons.BinaryRandomAccessList
-import Prelude hiding (drop)
-import PFDS.Sec9.Ex1
+import Prelude hiding (head, tail, lookup, drop)
 
+import PFDS.Sec9.Ex1
 spec :: Spec
 spec = do
   describe "dropNaive" $ do
@@ -17,13 +22,23 @@ spec = do
       dropNaive 2 [One (Leaf 'a'), One (Node 2 (Leaf 'b') (Leaf 'c'))]
         `shouldBe` [One (Leaf 'c')]
   describe "drop" $
-    prop "equivalent to dropNaive" prop_drop
+    prop "forall xs. drop xs == dropNaive xs" prop_drop
 
-prop_drop :: RList a -> Bool
-prop_drop xs = drop xs == dropNaive xs
+-- https://qiita.com/waddlaw/items/fad80832cfc60a56d7a2
+prop_drop :: Int -> RList Int -> Property
+prop_drop n xs = ioProperty $ do
+  a <- tryEvaluate $ drop n xs
+  b <- tryEvaluate $ dropNaive n xs
+  let a' = either (const []) id a
+  let b' = either (const []) id b
+  return $ a' === b'
 
--- TODO: make RList an instance of Arbitary
--- 任意のデータではなく特定の操作列から生成されうる
--- データ集合を作る時、操作列を生成して適用するか、
--- データのwell formed性をチェックする関数を書いて
--- ふるいに掛けるか。って書いてて後者が良さそうな気がしてきた
+instance {-# OVERLAPPING #-} Arbitrary a => Arbitrary (RList a) where
+  arbitrary = do
+    ops <- genArbitraryOprs
+    return $ foldr ($) empty ops
+
+genArbitraryOprs :: Arbitrary a => Gen [RList a -> RList a]
+genArbitraryOprs = do
+  a <- arbitrary
+  listOf $ elements [cons a, tail]
