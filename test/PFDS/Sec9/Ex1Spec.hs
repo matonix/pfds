@@ -23,15 +23,19 @@ spec = do
         `shouldBe` [One (Leaf 'c')]
   describe "drop" $
     prop "forall xs. drop xs == dropNaive xs" prop_drop
+  describe "drop'" $
+    prop "forall xs. drop' xs == dropNaive xs" prop_drop'
 
 -- https://qiita.com/waddlaw/items/fad80832cfc60a56d7a2
 prop_drop :: Int -> RList Int -> Property
-prop_drop n xs = ioProperty $ do
-  a <- tryEvaluate $ drop n xs
-  b <- tryEvaluate $ dropNaive n xs
-  let a' = either (const []) id a
-  let b' = either (const []) id b
-  return $ a' === b'
+prop_drop n xs = ioProperty $
+  (===) <$> tryDef (drop n xs) <*> tryDef (dropNaive n xs)
+
+prop_drop' :: Int -> RList Int -> Property
+prop_drop' n xs = ioProperty $
+  (===) <$> tryDef (drop' n xs) <*> tryDef (dropNaive n xs)
+
+tryDef a = either (const []) id <$> tryEvaluate a
 
 instance {-# OVERLAPPING #-} Arbitrary a => Arbitrary (RList a) where
   arbitrary = do
