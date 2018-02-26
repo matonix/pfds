@@ -52,11 +52,10 @@ drop' x ds
   where
     drop'' 0 ds' = ds'
     drop'' x (d:ds') =
-        if x `mod` 2 == 0
-        then d : drop'' x' ds'
-        else case d of
-          One _ -> Zero : drop'' x' ds'
-          Zero -> One t' : drop'' x' ds''
+      if x `mod` 2 == 0
+      then d : drop'' (x `div` 2) ds'
+      else case d of
+        One _ -> Zero : drop'' (x `div` 2) ds'
+        Zero -> One t' : drop'' (x `div` 2) ds''
       where
-        x' = x `div` 2
         (Node _ _ t', ds'') = unconsTree ds'
