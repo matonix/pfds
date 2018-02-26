@@ -18,10 +18,11 @@ drop x ds
   | x <= 0 = ds
   | x >= sizeR ds = []
   | otherwise = chopZero (dropTree (toBin x) ds)
-    where
-      sizeR [] = 0
-      sizeR (Zero : ds') = sizeR ds'
-      sizeR (One t : ds') = size t + sizeR ds'
+
+sizeR :: RList a -> Int
+sizeR [] = 0
+sizeR (Zero : ds') = sizeR ds'
+sizeR (One t : ds') = size t + sizeR ds'
 
 toBin :: Int -> [Int]
 toBin = unfoldr (\x ->
@@ -31,7 +32,6 @@ toBin = unfoldr (\x ->
 
 dropTree :: [Int] -> RList a -> RList a
 dropTree [] ds = ds
-dropTree _ [] = []
 dropTree (0 : xs) (d : ds) = d : dropTree xs ds
 dropTree (1 : xs) (One _ : ds) = Zero : dropTree xs ds
 dropTree (1 : xs) (Zero : ds) = One t : dropTree xs ds'
@@ -45,14 +45,18 @@ chopZero = reverse . dropWhile isZero . reverse
     isZero _ = False
 
 drop' :: Int -> RList a -> RList a
-drop' 0 ts = ts
-drop' _ [] = []
-drop' x (t:ts) =
-  if x `mod` 2 == 0
-  then drop' x' ts
-  else case t of
-    One _ -> drop' x' ts
-    Zero -> drop' x' (One t' : ts')
+drop' x ds
+  | x <= 0 = ds
+  | x >= sizeR ds = []
+  | otherwise = chopZero $ drop'' x ds
   where
-    x' = x `div` 2
-    (Node _ _ t', ts') = unconsTree ts
+    drop'' 0 ds' = ds'
+    drop'' x (d:ds') =
+        if x `mod` 2 == 0
+        then d : drop'' x' ds'
+        else case d of
+          One _ -> Zero : drop'' x' ds'
+          Zero -> One t' : drop'' x' ds''
+      where
+        x' = x `div` 2
+        (Node _ _ t', ds'') = unconsTree ds'
