@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a8af406eed3a7584595d761509f99aa3f6cc87f2e691fef7c6a580d96a2954d3
+-- hash: 8b2bf1eb2cd8fe71efe3d7631610fd0336a1a6841498988f547149d24f8fb7ed
 
 name:           pfds
 version:        0.1.0.0
@@ -79,6 +79,7 @@ library
       PFDS.Sec9.Dence
       PFDS.Sec9.Ex1
       PFDS.Sec9.Ex2
+      PFDS.Sec9.Ex3
       PFDS.Sec9.SparseByWeight
       PFDS.Strict.RealTimeQueueFixed
       PFDS.Strict.RealTimeQueueNaive
@@ -105,5 +106,6 @@ test-suite pfds-test
       PFDS.Sec8.Ex1Spec
       PFDS.Sec9.Ex1Spec
       PFDS.Sec9.Ex2Spec
+      PFDS.Sec9.Ex3Spec
       Paths_pfds
   default-language: Haskell2010
