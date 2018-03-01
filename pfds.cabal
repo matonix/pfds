@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 41189489341c4b7cdd6da97030f02f26cac8d931f08e5f35c8ab3370588a78d0
+-- hash: f99416062e285f63435258e7c8b9d75315f6e7f972f5290e76f5334233c67115
 
 name:           pfds
 version:        0.1.0.0
@@ -81,6 +81,8 @@ library
       PFDS.Sec9.Ex2
       PFDS.Sec9.Ex3
       PFDS.Sec9.Ex4
+      PFDS.Sec9.Ex5
+      PFDS.Sec9.Ex7
       PFDS.Sec9.SparseByWeight
       PFDS.Strict.RealTimeQueueFixed
       PFDS.Strict.RealTimeQueueNaive

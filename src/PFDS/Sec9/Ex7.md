@@ -1,0 +1,3 @@
+# 演習問題 9.7
+
+以前紹介して頂いた、[Constructing Red-Black Trees](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.84.8182&rep=rep1&type=pdf) の 3. A closer look at top-down を読むと…
