@@ -36,12 +36,6 @@ insert x s = T B a' y' b' where
 data Digit a = One a (Tree a)
              | Two a (Tree a) a (Tree a)
 
-
--- consTree :: Tree a -> RList a -> RList a
--- consTree t [] = [One t]
--- consTree t1 (One t2 : ts) = Two t1 t2 : ts
--- consTree t1 (Two t2 t3 : ts) = One t1 : consTree (link t2 t3) ts
-
 inc :: Digit a -> [Digit a] -> [Digit a]
 inc (One e1 t1) [] = [One e1 t1]
 inc (One e1 t1) (One e2 t2 : ds) = Two e1 t1 e2 t2 : ds
@@ -70,18 +64,21 @@ kawaii :: Show a => Tree a -> [String]
 kawaii = snd . kawaii'
   where
     kawaii' E = ([True], ["E"])
-    kawaii' (T c t1 x t2) = (bools, t1' ++ [kawa c ++ show x] ++ t2')
+    kawaii' (T c t1 x t2) = (bs, ss)
       where
-        kawa R = "○ "
-        kawa B = "● "
-        shapeT Emp False = Emp
-        shapeT Emp True = Top
-        shapeT Top False = Bar
-        shapeT Bar False = Bar
-        shapeB Bar False = Bar
-        shapeB Bar True = Bot
-        shapeB Bot False = Emp
-        shapeB Emp False = Emp
-        bools = replicate (length t1') False ++ [True] ++ replicate (length t2') False
-        t1' = uncurry (zipWith (++) . map show . tail . scanl shapeT Emp) $ kawaii' t1
-        t2' = uncurry (zipWith (++) . map show . tail . scanl shapeB Bar) $ kawaii' t2
+        ss = s1 ++ [kawa c ++ show x] ++ s2
+        bs = genBools s1 ++ [True] ++ genBools s2
+        s1 = genTrees shapeT Emp t1
+        s2 = genTrees shapeB Bar t2
+    genTrees f e = uncurry (zipWith (++) . map show . tail . scanl f e) . kawaii'
+    genBools = flip replicate False . length
+    kawa R = "○ "
+    kawa B = "● "
+    shapeT Emp False = Emp
+    shapeT Emp True = Top
+    shapeT Top False = Bar
+    shapeT Bar False = Bar
+    shapeB Bar False = Bar
+    shapeB Bar True = Bot
+    shapeB Bot False = Emp
+    shapeB Emp False = Emp
