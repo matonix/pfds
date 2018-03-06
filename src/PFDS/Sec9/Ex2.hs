@@ -20,14 +20,12 @@ create n x = create' n (Leaf x)
         double t@(Node w _ _) = Node (w * 2) t t
 
 create2 :: Int -> a -> RList a
-create2 n x = unfoldr f (n, Leaf x)
+create2 n x = unfoldr f (n `divMod` 2, Leaf x)
   where
-    f (0, _) = Nothing
-    f (n, t) = let
-      (next, m) = n `divMod` 2
-      in if m == 0
-        then Just (Zero, (next, double t))
-        else Just (One t, (next, double t))
-        where
-          double t@(Leaf _) = Node 2 t t
-          double t@(Node w _ _) = Node (w * 2) t t
+    f ((0, _), _) = Nothing
+    f ((n, 0), t) = Just (Zero, next n t)
+    f ((n, _), t) = Just (One t, next n t)
+    next n t = (n `divMod` 2, double t)
+     where
+       double t@(Leaf _) = Node 2 t t
+       double t@(Node w _ _) = Node (w * 2) t t
