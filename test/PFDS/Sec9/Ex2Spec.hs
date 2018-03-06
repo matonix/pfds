@@ -32,7 +32,13 @@ spec = do
         `shouldBe` []
   describe "create" $
     prop "forall n x. create n x == createNaive n x" prop_create
+  describe "create2" $
+    prop "forall n x. create2 n x == createNaive n x" prop_create
 
 prop_create :: Char -> Property
 prop_create x = forAll (choose (1, 100)) $ \n ->
   create n x === createNaive n x
+
+prop_create2 :: Char -> Property
+prop_create2 x = forAll (choose (1, 100)) $ \n ->
+  create2 n x === createNaive n x
