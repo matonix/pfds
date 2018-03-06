@@ -53,7 +53,9 @@ link t1 t2 = Node (size t1 + size t2) t1 t2
 
 consTree :: Tree a -> RList a -> RList a
 consTree t [] = [t]
-consTree t1 (t2 : ts) = consTree (link t1 t2) ts
+consTree t1 (t2 : ts) = if size t1 == size t2
+  then consTree (link t1 t2) ts
+  else t1 : t2 : ts
 
 unconsTree :: RList a -> (Tree a, RList a)
 unconsTree [] = error "Empty"
