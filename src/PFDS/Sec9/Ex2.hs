@@ -7,15 +7,13 @@ createNaive :: Int -> a -> RList a
 createNaive n x = if n <= 0 then empty else cons x $ createNaive (n - 1) x
 
 create :: Int -> a -> RList a
-create n x = create' n 1
+create n x = create' n (Leaf x)
   where
     create' 0 _ = []
-    create' n p =
+    create' n t =
       if n `mod` 2 == 0
-      then Zero : create' (n `div` 2) (p * 2)
-      else One (createTree p) : create' (n `div` 2) (p * 2)
+      then Zero : create' (n `div` 2) (double t)
+      else One t : create' (n `div` 2) (double t)
       where
-        createTree 1 = Leaf x
-        createTree m = Node m child child
-          where
-            child = createTree (m `div` 2)
+        double t@(Leaf _) = Node 2 t t
+        double t@(Node w _ _) = Node (w * 2) t t
