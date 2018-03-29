@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 01e48ede56d2c901ff986554bc41793055b3de1f8ab6c0c110dc93d7040952a1
+-- hash: 61081d255398b91be57e9a184620a1b090af3db5ce475490fbb68b9072e77c49
 
 name:           pfds
 version:        0.1.0.0
@@ -80,6 +80,7 @@ library
       PFDS.Sec9.Ex1
       PFDS.Sec9.Ex10
       PFDS.Sec9.Ex11
+      PFDS.Sec9.Ex12
       PFDS.Sec9.Ex2
       PFDS.Sec9.Ex3
       PFDS.Sec9.Ex4
