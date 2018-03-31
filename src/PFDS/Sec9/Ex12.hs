@@ -21,7 +21,6 @@ threes i ds = Threes i : ds
 
 simpleInc :: Nat -> Nat
 simpleInc [] = [Threes 1]
-simpleInc (Zero : ds) = ones 1 ds
 simpleInc (Ones i : ds) = Two : ones (i - 1) ds
 simpleInc (Two : ds) = threes 1 ds
 simpleInc (Threes i : ds) = Four : threes (i - 1) ds
@@ -31,7 +30,6 @@ simpleDec [] = [Ones 1]
 simpleDec (Ones i : ds) = Zero : ones (i - 1) ds
 simpleDec (Two : ds) = ones 1 ds
 simpleDec (Threes i : ds) = Two : threes (i - 1) ds
-simpleDec (Four : ds) = threes 1 ds
 
 fixup :: Nat -> Nat
 fixup (Zero : ds) = Two : simpleDec ds
