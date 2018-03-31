@@ -20,13 +20,13 @@ threes i (Threes j : ds) = Threes (i + j) : ds
 threes i ds = Threes i : ds
 
 simpleInc :: Nat -> Nat
-simpleInc [] = [Threes 1]
+simpleInc [] = [Ones 1]
 simpleInc (Ones i : ds) = Two : ones (i - 1) ds
 simpleInc (Two : ds) = threes 1 ds
 simpleInc (Threes i : ds) = Four : threes (i - 1) ds
 
 simpleDec :: Nat -> Nat
-simpleDec [] = [Ones 1]
+simpleDec [Ones 1] = []
 simpleDec (Ones i : ds) = Zero : ones (i - 1) ds
 simpleDec (Two : ds) = ones 1 ds
 simpleDec (Threes i : ds) = Two : threes (i - 1) ds
