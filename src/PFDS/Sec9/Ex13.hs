@@ -66,6 +66,7 @@ unconsTree (Ones (t1 : ts) : ds) = (t1, Zero : ones ts ds)
 unconsTree (Two (t1, t2) : ds) = (t1, ones [t2] ds)
 unconsTree (Threes ((t1, t2, t3) : ts) : ds) = (t1, Two (t2, t3) : threes ts ds)
 
+unwrapTrees :: Digit a -> [Tree a]
 unwrapTrees Zero = []
 unwrapTrees (Ones ts) = ts
 unwrapTrees (Two (t1, t2)) = [t1, t2]

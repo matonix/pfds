@@ -5,6 +5,8 @@
 
 module PFDS.Sec9.Ex13_2 where
 
+-- リストを使ってTreeの数に関する明示的な制約を犠牲に実装を簡素にしたバージョン
+
 import PFDS.Commons.RandomAccessList
 import Prelude hiding (head, tail, lookup)
 
@@ -38,12 +40,8 @@ instance RandomAccessList (RList a) where
   tail ds = let (_, ds') = unconsTree ds in fixup ds'
 
   lookup :: Int -> RList a -> a
-  lookup = undefined
-  -- lookup i [] = error "Subscript"
-  -- lookup i (Zero : ts) = lookup i ts
-  -- lookup i (One t : ts) = if i < size t
-  --   then lookupTree i t
-  --   else lookup (i - size t) ts
+  lookup i [] = error "Subscript"
+  lookup i (d : ds) = lookupTrees i (unwrapTrees d) ds
 
   update :: Int -> a -> RList a -> RList a
   update = undefined
@@ -69,6 +67,19 @@ unconsTree [Ones [[t]]] = (t, [])
 unconsTree (Ones ([t] : tss) : ds) = (t, Zero : ones tss ds)
 unconsTree (Two (t : ts) : ds) = (t, ones [ts] ds)
 unconsTree (Threes ((t : ts) : tss) : ds) = (t, Two ts : threes tss ds)
+
+unwrapTrees :: Digit a -> [Tree a]
+unwrapTrees Zero = []
+unwrapTrees (Ones tss) = concat tss
+unwrapTrees (Two ts) = ts
+unwrapTrees (Threes tss) = concat tss
+unwrapTrees (Four ts) = ts
+
+lookupTrees :: Int -> [Tree a] -> RList a -> a
+lookupTrees i [] ds = lookup i ds
+lookupTrees i (t : ts) ds = if i < size t
+  then lookupTree i t
+  else lookupTrees (i - size t) ts ds
 
 lookupTree :: Int -> Tree a -> a
 lookupTree 0 (Leaf x) = x
