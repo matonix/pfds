@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2888b4204f3449aab73b2ea0d57350b6e6b96527bb118fc73998070d7a440471
+-- hash: 8fedba8b61bf40ccdab78c0b0207a0b77132bb5ece22e412b27d46ce6f6d6fce
 
 name:           pfds
 version:        0.1.0.0
@@ -42,10 +42,12 @@ library
       PFDS.Commons.PairingHeap
       PFDS.Commons.PhysicistsQueue
       PFDS.Commons.Queue
+      PFDS.Commons.QueueFamily
       PFDS.Commons.RandomAccessList
       PFDS.Commons.RealTimeDeque
       PFDS.Commons.RealTimeQueue
       PFDS.Commons.RedBlackSet
+      PFDS.Commons.SkewBinaryRandomAccessList
       PFDS.Commons.SplayHeap
       PFDS.Commons.Stream
       PFDS.Sec2.Ex1
@@ -83,6 +85,7 @@ library
       PFDS.Sec9.Ex12
       PFDS.Sec9.Ex13
       PFDS.Sec9.Ex13_2
+      PFDS.Sec9.Ex14
       PFDS.Sec9.Ex2
       PFDS.Sec9.Ex3
       PFDS.Sec9.Ex4
@@ -91,6 +94,7 @@ library
       PFDS.Sec9.Ex9
       PFDS.Sec9.RedundantSegmentedBinary
       PFDS.Sec9.SegmentedBinary
+      PFDS.Sec9.SkewBinaryNumber
       PFDS.Sec9.SparseByWeight
       PFDS.Strict.RealTimeQueueFixed
       PFDS.Strict.RealTimeQueueNaive
