@@ -1,8 +1,8 @@
--- This file has been generated from package.yaml by hpack version 0.20.0.
+-- This file has been generated from package.yaml by hpack version 0.28.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 8fedba8b61bf40ccdab78c0b0207a0b77132bb5ece22e412b27d46ce6f6d6fce
+-- hash: 6760e896ea87f60adcf46f194413fbe78b8b546a5353bf05eb72b1f6276d3669
 
 name:           pfds
 version:        0.1.0.0
@@ -16,7 +16,6 @@ license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
 cabal-version:  >= 1.10
-
 extra-source-files:
     README.md
 
@@ -38,6 +37,7 @@ library
       PFDS.Commons.BottomUpMergeSort
       PFDS.Commons.Deque
       PFDS.Commons.Heap
+      PFDS.Commons.HeapFamily
       PFDS.Commons.HoodMelvilleQueue
       PFDS.Commons.PairingHeap
       PFDS.Commons.PhysicistsQueue
@@ -48,6 +48,7 @@ library
       PFDS.Commons.RealTimeQueue
       PFDS.Commons.RedBlackSet
       PFDS.Commons.SkewBinaryRandomAccessList
+      PFDS.Commons.SkewBinomialHeap
       PFDS.Commons.SplayHeap
       PFDS.Commons.Stream
       PFDS.Sec2.Ex1
@@ -86,6 +87,7 @@ library
       PFDS.Sec9.Ex13
       PFDS.Sec9.Ex13_2
       PFDS.Sec9.Ex14
+      PFDS.Sec9.Ex16
       PFDS.Sec9.Ex2
       PFDS.Sec9.Ex3
       PFDS.Sec9.Ex4
