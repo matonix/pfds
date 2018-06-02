@@ -12,6 +12,7 @@ library:
   source-dirs: src
   dependencies:
   - base >=4.7 && <5
+  - vector
 
 # executables:
 #   graphviz:

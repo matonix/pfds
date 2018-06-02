@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6760e896ea87f60adcf46f194413fbe78b8b546a5353bf05eb72b1f6276d3669
+-- hash: e5df3235bd458b9dc9729e3c903a03d7cffc15b1f020d455b36eace417719dd7
 
 name:           pfds
 version:        0.1.0.0
@@ -28,6 +28,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , vector
   exposed-modules:
       PFDS.Commons.BankersDeque
       PFDS.Commons.BankersQueue
@@ -88,15 +89,20 @@ library
       PFDS.Sec9.Ex13_2
       PFDS.Sec9.Ex14
       PFDS.Sec9.Ex16
+      PFDS.Sec9.Ex17
+      PFDS.Sec9.Ex18
+      PFDS.Sec9.Ex19
       PFDS.Sec9.Ex2
       PFDS.Sec9.Ex3
       PFDS.Sec9.Ex4
       PFDS.Sec9.Ex5
       PFDS.Sec9.Ex7
       PFDS.Sec9.Ex9
+      PFDS.Sec9.NonZero4aryNumber
       PFDS.Sec9.RedundantSegmentedBinary
       PFDS.Sec9.SegmentedBinary
       PFDS.Sec9.SkewBinaryNumber
+      PFDS.Sec9.SkewTrinaryNumber
       PFDS.Sec9.SparseByWeight
       PFDS.Strict.RealTimeQueueFixed
       PFDS.Strict.RealTimeQueueNaive
