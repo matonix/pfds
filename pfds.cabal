@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0578cf6125ac172a529d510b28703d22a27680f2c603acb3b52d8c8e080cfc0f
+-- hash: 3a0183c9aa0ce8ed9532da59be4c463e8775b8d9de29b6e41341c87134ca293e
 
 name:           pfds
 version:        0.1.0.0
@@ -128,6 +128,7 @@ test-suite pfds-test
   other-modules:
       PFDS.Commons.BatchedQueueSpec
       PFDS.Commons.BinaryRandomAccessListSpec
+      PFDS.Sec10.Ex2Spec
       PFDS.Sec5.Ex1Spec
       PFDS.Sec5.Ex7Spec
       PFDS.Sec8.Ex1Spec
