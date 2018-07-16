@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3a0183c9aa0ce8ed9532da59be4c463e8775b8d9de29b6e41341c87134ca293e
+-- hash: 3701e401ee6554ee9774070df9a2b4ed2fa5bd482028d08b9156193f09c1761b
 
 name:           pfds
 version:        0.1.0.0
@@ -40,6 +40,7 @@ library
       PFDS.Commons.Heap
       PFDS.Commons.HeapFamily
       PFDS.Commons.HoodMelvilleQueue
+      PFDS.Commons.IsList
       PFDS.Commons.PairingHeap
       PFDS.Commons.PhysicistsQueue
       PFDS.Commons.Queue
@@ -54,6 +55,7 @@ library
       PFDS.Commons.SplayHeap
       PFDS.Commons.Stream
       PFDS.Sec10.AltBinaryRandomAccessList
+      PFDS.Sec10.BootstrappedQueue
       PFDS.Sec10.Ex2
       PFDS.Sec10.NonUniformSeq
       PFDS.Sec2.Ex1

@@ -1,8 +1,7 @@
-module PFDS.Sec10.Ex2 where
+module PFDS.Sec10.Ex2 (RList(..)) where
 
 import PFDS.Commons.RandomAccessListNoFamily
 import Prelude hiding (head, tail, lookup)
-import Data.List (unfoldr)
 
 -- NonZeroRedundantBinary (cf. Ex9.9)
 data RList a = Nil
@@ -70,11 +69,3 @@ fupdateHalf :: (a -> a) -> Int -> RList (a, a) -> RList (a, a)
 fupdateHalf f i ps = let
   f' (x, y) = if i `mod` 2 == 0 then (f x, y) else (x, f y)
   in fupdate f' (i `div` 2) ps
-
-toList :: RList a -> [a]
-toList = unfoldr unconsMaybe where
-  unconsMaybe Nil = Nothing
-  unconsMaybe ps = Just (uncons ps)
-
-fromList :: [a] -> RList a
-fromList = foldr cons Nil

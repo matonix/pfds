@@ -1,11 +1,16 @@
+
+
 module PFDS.Sec10.Ex2Spec where
 
 import Test.Hspec
 import Test.QuickCheck
 import Test.Hspec.QuickCheck (prop)
+
+import PFDS.Commons.IsList
 import PFDS.Commons.RandomAccessListNoFamily
 import PFDS.Sec10.Ex2
 import Prelude hiding (head, tail, lookup)
+
 
 spec :: Spec
 spec =
@@ -17,4 +22,4 @@ spec =
 -- prop_delete xs = foldr delete (foldr insert empty xs) xs == empty
 
 prop_insert :: Int -> [Int] -> Bool
-prop_insert x xs = toList (cons x (fromList xs)) == x : xs
+prop_insert x xs = toList (cons x (fromList xs :: RList Int)) == x : xs
