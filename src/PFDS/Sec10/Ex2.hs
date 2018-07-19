@@ -1,4 +1,6 @@
-module PFDS.Sec10.Ex2 (RList(..)) where
+module PFDS.Sec10.Ex2
+  ( RList(..)
+  ) where
 
 import PFDS.Commons.RandomAccessListNoFamily
 import Prelude hiding (head, tail, lookup)

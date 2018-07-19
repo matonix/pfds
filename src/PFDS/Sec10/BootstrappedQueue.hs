@@ -1,11 +1,13 @@
-module PFDS.Sec10.BootstrappedQueue where
+module PFDS.Sec10.BootstrappedQueue
+  ( BQueue(..)
+  ) where
 
-import qualified PFDS.Commons.Queue as Commons
+import PFDS.Commons.Queue
 import Prelude hiding (head, tail)
 
-data Queue a = E | Q Int [a] (Queue [a]) Int [a]
+data BQueue a = E | Q Int [a] (BQueue [a]) Int [a] deriving (Show)
 
-instance Commons.Queue Queue where
+instance Queue BQueue where
 
   empty = E
 
@@ -21,12 +23,12 @@ instance Commons.Queue Queue where
   tail E = error "Empty"
   tail (Q lenfm (x : f') m lenr r) = checkQ (Q (lenfm - 1) f' m lenr r)
 
-checkQ :: Queue a -> Queue a
+checkQ :: BQueue a -> BQueue a
 checkQ q@(Q lenfm f m lenr r) = if lenr <= lenfm
   then checkF q
-  else checkF (Q (lenfm + lenr) f (Commons.snoc m (reverse r)) 0 [])
+  else checkF (Q (lenfm + lenr) f (snoc m (reverse r)) 0 [])
 
-checkF :: Queue a -> Queue a
+checkF :: BQueue a -> BQueue a
 checkF (Q lenfm [] E lenr r) = E
-checkF (Q lenfm [] m lenr r) = Q lenfm (Commons.head m) (Commons.tail m) lenr r
+checkF (Q lenfm [] m lenr r) = Q lenfm (head m) (tail m) lenr r
 checkF q = q

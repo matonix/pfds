@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3701e401ee6554ee9774070df9a2b4ed2fa5bd482028d08b9156193f09c1761b
+-- hash: 0af3674ae39f0f1cecb12a314de22733dea608adfb21ca4858d607c12393e78f
 
 name:           pfds
 version:        0.1.0.0
@@ -40,7 +40,8 @@ library
       PFDS.Commons.Heap
       PFDS.Commons.HeapFamily
       PFDS.Commons.HoodMelvilleQueue
-      PFDS.Commons.IsList
+      PFDS.Commons.IsList.Queue
+      PFDS.Commons.IsList.RandomAccessListNoFamily
       PFDS.Commons.PairingHeap
       PFDS.Commons.PhysicistsQueue
       PFDS.Commons.Queue
@@ -57,6 +58,7 @@ library
       PFDS.Sec10.AltBinaryRandomAccessList
       PFDS.Sec10.BootstrappedQueue
       PFDS.Sec10.Ex2
+      PFDS.Sec10.Ex4
       PFDS.Sec10.NonUniformSeq
       PFDS.Sec2.Ex1
       PFDS.Sec2.Ex2
@@ -128,9 +130,11 @@ test-suite pfds-test
     , hspec
     , pfds
   other-modules:
+      PFDS.Commons.Arbitrary.Queue
       PFDS.Commons.BatchedQueueSpec
       PFDS.Commons.BinaryRandomAccessListSpec
       PFDS.Sec10.Ex2Spec
+      PFDS.Sec10.Ex4Spec
       PFDS.Sec5.Ex1Spec
       PFDS.Sec5.Ex7Spec
       PFDS.Sec8.Ex1Spec

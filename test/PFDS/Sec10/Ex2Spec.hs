@@ -1,12 +1,10 @@
-
-
 module PFDS.Sec10.Ex2Spec where
 
 import Test.Hspec
 import Test.QuickCheck
 import Test.Hspec.QuickCheck (prop)
 
-import PFDS.Commons.IsList
+import PFDS.Commons.IsList.RandomAccessListNoFamily
 import qualified PFDS.Commons.RandomAccessListNoFamily as RList
 import PFDS.Sec10.Ex2
 
