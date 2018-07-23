@@ -1,11 +1,9 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE ViewPatterns #-}
 
-module PFDS.Sec10.Ex5
-  () where
+module PFDS.Sec10.Ex5 where
 
 import PFDS.Commons.Queue
-import PFDS.Commons.RealTimeQueue (RealTimeQueue)
 import Prelude hiding (head, tail)
 
 data BQueue q a = E | Q Int [a] (q [a]) Int [a]
@@ -34,3 +32,8 @@ checkF :: Queue q => BQueue q a -> BQueue q a
 checkF (Q lenfm [] (isEmpty -> True) lenr r) = E
 checkF (Q lenfm [] m lenr r) = Q lenfm (head m) (tail m) lenr r
 checkF q = q
+
+-- (b) PrimQ に実時間キューを指定した場合
+-- snoc も tail も内部で checkQ, checkF を呼ぶが、
+-- 内部で呼ばれる snoc, head, tail は実時間キューのものなので O(1) である。
+-- ゆえにすべての操作が O(1) 償却時間となる。
