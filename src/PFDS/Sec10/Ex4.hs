@@ -1,4 +1,3 @@
--- 自信がない
 module PFDS.Sec10.Ex4
   ( BQueue(..)
   , EL(..)
@@ -17,34 +16,29 @@ instance Queue BQueue where
   isEmpty E = True
   isEmpty _ = False
 
-  snoc q x = snocEL 1 q (Elem x)
+  snoc E x = Q 1 [Elem x] E 0 []
+  snoc (Q lenfm f m lenr r) x = checkQ lenfm f m (lenr + 1) (Elem x : r)
 
   head E = error "Empty"
-  head (Q lenfm f m lenr r) = let (x, _) = unconsEL f
-    in x
+  head (Q _ (Elem x : _) _ _ _) = x
 
   tail E = error "Empty"
-  tail (Q lenfm f m lenr r) = let (_, f') = unconsEL f
-    in checkQ (Q (lenfm - 1) f' m lenr r)
+  tail (Q lenfm (_ : f') m lenr r) = checkQ (lenfm - 1) f' m lenr r
 
-checkQ :: BQueue a -> BQueue a
-checkQ q@(Q lenfm f m lenr r) = if lenr <= lenfm
-  then checkF q
-  else checkF (Q (lenfm + lenr) f (snocEL lenr m (List (reverse r))) 0 [])
+checkQ :: Int -> [EL a] -> BQueue a -> Int -> [EL a] -> BQueue a
+checkQ lenfm f m lenr r = if lenr <= lenfm
+  then checkF lenfm f m lenr r
+  else checkF (lenfm + lenr) f (snocEL m (reverse r)) 0 []
 
-checkF :: BQueue a -> BQueue a
-checkF (Q lenfm [] E lenr r) = E
-checkF (Q lenfm [] m lenr r) = Q lenfm [Elem (head m)] (tail m) lenr r
-checkF q = q
+checkF :: Int -> [EL a] -> BQueue a -> Int -> [EL a] -> BQueue a
+checkF lenfm [] E lenr r = E
+checkF lenfm [] m lenr r = Q lenfm (headEL m) (tail m) lenr r
+checkF lenfm f m lenr r = Q lenfm f m lenr r
 
-snocEL :: Int -> BQueue a -> EL a -> BQueue a
-snocEL lenx E x = Q lenx [x] E 0 []
-snocEL lenx (Q lenfm f m lenr r) x = checkQ (Q lenfm f m (lenr + lenx) (x : r))
+snocEL :: BQueue a -> [EL a] -> BQueue a
+snocEL E x = Q 1 [List x] E 0 []
+snocEL (Q lenfm f m lenr r) x = checkQ lenfm f m (lenr + 1) (List x : r)
 
-unconsEL :: [EL a] -> (a, [EL a])
-unconsEL [] = error "Empty"
-unconsEL (Elem x : xs) = (x, xs)
-unconsEL (List xs : xss) = let (x, xs') = unconsEL xs
-  in case xs' of
-    [] -> (x, xss)
-    xs' -> (x, List xs' : xss)
+headEL :: BQueue a -> [EL a]
+headEL E = error "Empty"
+headEL (Q _ (List x : _) _ _ _) = x
