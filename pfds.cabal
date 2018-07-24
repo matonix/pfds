@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0af3674ae39f0f1cecb12a314de22733dea608adfb21ca4858d607c12393e78f
+-- hash: 72e066144c97f37dc4c59ae48e935fbe14f2f750f195760954c4244c396ef2e2
 
 name:           pfds
 version:        0.1.0.0
@@ -59,6 +59,7 @@ library
       PFDS.Sec10.BootstrappedQueue
       PFDS.Sec10.Ex2
       PFDS.Sec10.Ex4
+      PFDS.Sec10.Ex5
       PFDS.Sec10.NonUniformSeq
       PFDS.Sec2.Ex1
       PFDS.Sec2.Ex2

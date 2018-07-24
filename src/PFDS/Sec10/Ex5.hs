@@ -1,4 +1,5 @@
-{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE UndecidableInstances #-}
 {-# LANGUAGE ViewPatterns #-}
 
 module PFDS.Sec10.Ex5 where
@@ -7,6 +8,7 @@ import PFDS.Commons.Queue
 import Prelude hiding (head, tail)
 
 data BQueue q a = E | Q Int [a] (q [a]) Int [a]
+deriving instance (Show a, Show (q [a])) => Show (BQueue q a)
 
 instance Queue q => Queue (BQueue q) where
   empty = E
